@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Bilett registrering</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>Bestilling av kinobiletter</h2>
+                <form id="form-ticket" class="needs-validation" onsubmit="return false" novalidate> <!-- stanser sendingen av formen -->
+                <div class="form-group">
+                    <label for="film-option">Velg film:</label>
+                    <select id="film-option" class="form-control form-control-sm" required>
+                        <option value="" selected="selected" disabled>Velg film</option>
+                        <option>No Man's Land</option>
+                        <option>Our Friend</option>
+                        <option>Breaking Fast</option>
+                        <option>Supernova</option>
+                        <option>Finding You</option>
+                        <option>The Little Things</option>
+                        <option>The Night</option>
+                    </select>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <label for="ticket-amount">Antall:</label>
+                    <input id="ticket-amount" class="form-control form-control-sm" type="number" min="0" required/>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-name">Fornavn:</label>
+                    <input id="customer-name" class="form-control form-control-sm" type="text" required/>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-surname">Etternavn:</label>
+                    <input id="customer-surname" class="form-control form-control-sm" type="text" required/>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Telefon nummer:</label>
+                    <input id="customer-phone" class="form-control form-control-sm" type="tel" required/>
+                    <div></div>
+                </div>
+                <div class="form-group">
+                    <label for="customer-email">Epost:</label>
+                    <input id="customer-email" class="form-control form-control-sm" type="email" required/>
+                    <div></div>
+                </div>
+                <button class="btn btn-primary" onclick="onTicketBuy()">Kjøp billett</button>
+            </form>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h2>Alle billetter</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr><th>Film</th><th>Antall</th><th>Navn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></tr>
+                    </thead>
+                    <tbody id="ticket-registry"></tbody>
+                </table>
+                <button class="btn btn-danger" onclick="removeTickets()">Slett alle billetter</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
